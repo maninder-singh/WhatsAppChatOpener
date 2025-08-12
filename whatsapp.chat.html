@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open WhatsApp Chat for Number</title>
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Changed from start to flex-start */
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+            margin: 20px auto 0 auto; /* 20px from top */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            width: 250px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1da851;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Open WhatsApp Chat</h2>
+        <form id="whatsappForm">
+            <input 
+                type="text" 
+                id="phoneNumber" 
+                placeholder="Enter 10 digit phone number" 
+                required 
+                maxlength="10" 
+                pattern="\d{10}" 
+                inputmode="numeric" 
+                style="ime-mode:disabled;"
+                autocomplete="off"
+            >
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('phoneNumber').addEventListener('input', function(e) {
+            // Remove non-digit characters and limit to 10 digits
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+
+        document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            if (/^\d{10}$/.test(phoneNumber)) {
+                const url = `https://wa.me/${phoneNumber}`;
+                window.open(url, '_blank');
+            } else {
+                alert('Please enter a valid 10 digit phone number.');
+            }
+        });
+    </script>
+</body>
+</html>
