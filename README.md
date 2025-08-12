@@ -12,7 +12,7 @@ It is useful for sending messages to numbers not saved in your contacts.
 
 ## How to Use
 
-1. Open `whatsapp.chat.html` in your web browser.
+1. Open `index.html` in your web browser.
 2. Enter a 10-digit phone number in the input box.
 3. Click the **Submit** button.
 4. A new tab will open with the WhatsApp chat for the entered number.
@@ -28,5 +28,6 @@ It is useful for sending messages to numbers not saved in your contacts.
 ![Screenshot](./screenshot.png)
 
 ---
+
 
 **Made for quick WhatsApp messaging without saving
